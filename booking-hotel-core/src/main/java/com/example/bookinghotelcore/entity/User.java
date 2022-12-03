@@ -1,4 +1,4 @@
-package com.example.bookinghotel.entity;
+package com.example.bookinghotelcore.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -13,16 +13,19 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "home")
+@Table(name = "user")
 
-public class Home {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private double price;
-    private String description;
-
+    private String name;
+    private String surname;
+    private String email;
+    private int phone;
+    @ManyToOne
+    private Home home;
 
 
 

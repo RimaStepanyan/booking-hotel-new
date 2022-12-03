@@ -1,8 +1,7 @@
-package com.example.bookinghotel.controller;
+package com.example.bookinghotelmvc.controller;
 
-
-import com.example.bookinghotel.entity.User;
-import com.example.bookinghotel.repository.UserRepository;
+import com.example.bookinghotelcore.entity.User;
+import com.example.bookinghotelcore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,15 +25,15 @@ public class UserController {
     }
 
     @GetMapping("/users/add")
-    public String addUserPage(){
+    public String addUserPage() {
         return "addUser";
     }
 
     @PostMapping("/users/add")
     public String addUser(@RequestParam(name = "name") String name,
                           @RequestParam(name = "surname") String surname,
-                          @RequestParam(name = "email")String email,
-                          @RequestParam(name = "phone") int phone){
+                          @RequestParam(name = "email") String email,
+                          @RequestParam(name = "phone") int phone) {
         User user = User.builder()
                 .name(name)
                 .surname(surname)
